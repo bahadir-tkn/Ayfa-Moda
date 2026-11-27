@@ -98,9 +98,12 @@ a { color: inherit; }
   .wrap { padding-left: max(48px, env(safe-area-inset-left, 0px)); padding-right: max(48px, env(safe-area-inset-right, 0px)); }
 }
 
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
-h1 { font-size: clamp(3rem, 8.4vw, 7rem); line-height: 0.98; font-variation-settings: "opsz" 96; }
-h2 { font-size: clamp(2.25rem, 5vw, 3.75rem); line-height: 1.04; font-variation-settings: "opsz" 72; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; margin: 0; text-wrap: balance; letter-spacing: 0; }
+/* Okunurluk: Bodoni Moda'nın büyük optik boyutundaki kıl çizgiler ekranda kayboluyordu.
+   Tüm başlık yazılarında küçük optik boyut (daha kalın ince çizgiler) kullanılır. */
+.brand, .about-text, .quotes blockquote, .score-num, .plate-num, h1, h2, h3 { font-variation-settings: "opsz" 11; }
+h1 { font-size: clamp(3rem, 8.4vw, 7rem); line-height: 0.98; font-variation-settings: "opsz" 11; }
+h2 { font-size: clamp(2.25rem, 5vw, 3.75rem); line-height: 1.04; font-variation-settings: "opsz" 11; }
 h3 { font-size: 1.75rem; line-height: 1.15; }
 p { margin: 0; }
 
@@ -114,7 +117,7 @@ p { margin: 0; }
   border-bottom: 1px solid var(--line);
 }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: 72px; }
-.brand { display: inline-flex; align-items: center; gap: var(--s3); font-family: var(--font-display); font-size: 1.625rem; text-decoration: none; letter-spacing: 0.01em; line-height: 1; }
+.brand { display: inline-flex; align-items: center; gap: var(--s3); font-family: var(--font-display); font-weight: 500; font-size: 1.625rem; text-decoration: none; letter-spacing: 0.01em; line-height: 1; }
 .brand img { width: 52px; height: 52px; }
 .foot .brand img { width: 44px; height: 44px; }
 .nav { display: none; gap: var(--s6); }
@@ -222,7 +225,7 @@ p { margin: 0; }
 .score { display: grid; gap: var(--s3); align-content: start; }
 .score-num {
   font-family: var(--font-display); font-size: clamp(6rem, 16vw, 11rem);
-  line-height: 0.85; font-variation-settings: "opsz" 96; font-variant-numeric: lining-nums;
+  line-height: 0.85; font-variation-settings: "opsz" 11; font-variant-numeric: lining-nums;
 }
 .stars { display: flex; gap: var(--s1); color: var(--gold); }
 .stars svg { width: 20px; height: 20px; }
@@ -241,7 +244,7 @@ p { margin: 0; }
   border: 1px solid var(--gold); padding: var(--s6) var(--s5) var(--s5);
 }
 .plate-label { font-size: 14px; color: var(--muted); }
-.plate-num { color: var(--gold); font-family: var(--font-display); font-size: clamp(7rem, 18vw, 10rem); line-height: 0.8; font-variation-settings: "opsz" 96; }
+.plate-num { color: var(--gold); font-family: var(--font-display); font-size: clamp(7rem, 18vw, 10rem); line-height: 0.8; font-variation-settings: "opsz" 11; }
 .plate address { font-style: normal; border-top: 1px solid var(--line); padding-top: var(--s4); }
 .block h3 { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--muted); margin-bottom: var(--s4); letter-spacing: 0; }
 .hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
