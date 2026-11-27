@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayfa Moda</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ayfa Moda, Isparta Fatih Çarşısı'nda kadın ve tesettür giyim butiği. Günlük kombinlerden özel davetlere modern, zarif ve rahat parçalar. Haftanın 7 günü açık.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ayfa Moda · Isparta">
+<meta property="og:description" content="Isparta Fatih Çarşısı'nda kadın ve tesettür giyim butiği. Haftanın 7 günü açık.">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400&family=Work+Sans:wght@400;500;600&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": "Ayfa Moda",
+  "description": "Isparta'da kadın giyim ve tesettür giyim butiği.",
+  "telephone": "+90 505 076 70 76",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Yayla Mahallesi, 1612. Sokak, Fatih Çarşısı No: 5, İç Kapı No: 35",
+    "postalCode": "32000",
+    "addressLocality": "Merkez",
+    "addressRegion": "Isparta",
+    "addressCountry": "TR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "20:00" }
+  ],
+  "paymentAccepted": "Kredi kartı, banka kartı, NFC mobil ödeme",
+  "sameAs": ["https://www.instagram.com/ayfa_moda_/"]
+}
+</script>
+<style>
+/* Yerleşim: asimetrik 7/5 hero → iki sütunlu tanıtım → dergi ızgarası koleksiyon →
+   ton farklı yorum şeridi → "İç Kapı 35" kapı levhalı ziyaret bloğu. Kart yok, ince çizgi + boşluk. */
+:root {
+  --bg: #F3F1F0;        /* taş beyazı, hafif mürdüm eğilimli */
+  --surface: #E7E2E2;   /* ikincil yüzey */
+  --ink: #1D1719;       /* ana metin */
+  --muted: #5C5255;     /* ikincil metin */
+  --accent: #6B2337;    /* mürdüm */
+  --on-accent: #FFFFFF;
+  --line: #CEC6C7;
+
+  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --font-body: "Work Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px;
+  --s7: 48px; --s8: 64px; --s9: 96px; --s10: 128px;
+  --max: 1280px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161213; --surface: #221B1D; --ink: #EFE9EA; --muted: #B4A9AC;
+    --accent: #E09AAE; --on-accent: #1D1719; --line: #3B3235; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161213; --surface: #221B1D; --ink: #EFE9EA; --muted: #B4A9AC;
+  --accent: #E09AAE; --on-accent: #1D1719; --line: #3B3235; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 30; background: var(--bg);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter-r);
+}
+@media (min-width: 900px) {
+  .wrap { padding-left: max(48px, env(safe-area-inset-left, 0px)); padding-right: max(48px, env(safe-area-inset-right, 0px)); }
+}
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h1 { font-size: clamp(3rem, 8.4vw, 7rem); line-height: 0.98; font-variation-settings: "opsz" 96; }
+h2 { font-size: clamp(2.25rem, 5vw, 3.75rem); line-height: 1.04; font-variation-settings: "opsz" 72; }
+h3 { font-size: 1.75rem; line-height: 1.15; }
+p { margin: 0; }
+
+.skip { position: absolute; left: -9999px; top: 0; }
+.skip:focus { left: var(--s4); top: var(--s4); z-index: 50; background: var(--ink); color: var(--bg); padding: var(--s2) var(--s4); }
+
+/* ---------- Üst bar ---------- */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: 64px; }
+.brand { font-family: var(--font-display); font-size: 1.625rem; text-decoration: none; letter-spacing: 0.01em; line-height: 1; }
+.nav { display: none; gap: var(--s6); }
+.nav a { text-decoration: none; font-size: 15px; color: var(--muted); padding-block: var(--s2); border-bottom: 1px solid transparent; }
+.nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.top-call { font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.top-call:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (min-width: 900px) { .nav { display: flex; } }
+
+/* ---------- Buton ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--s3);
+  min-height: 52px; padding: 0 var(--s6);
+  background: var(--accent); color: var(--on-accent);
+  font: 500 16px/1 var(--font-body); text-decoration: none;
+  border: 1px solid var(--accent); border-radius: 0;
+  transition: background-color .2s ease, color .2s ease;
+}
+.btn:hover { background: transparent; color: var(--accent); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.link {
+  font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px;
+  text-underline-offset: 6px; text-decoration-color: var(--line);
+  transition: text-decoration-color .2s ease;
+}
+.link:hover { text-decoration-color: currentColor; }
+
+/* ---------- Görsel yer tutucu ---------- */
+.ph {
+  position: relative; width: 100%; max-width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: grid; place-items: center;
+  overflow: hidden;
+}
+.ph span {
+  font-size: 13px; color: var(--muted); letter-spacing: 0.02em;
+  padding: var(--s2) var(--s3); text-align: center;
+}
+.r-3-4 { aspect-ratio: 3 / 4; }
+.r-4-5 { aspect-ratio: 4 / 5; }
+.r-1-1 { aspect-ratio: 1 / 1; }
+
+/* ---------- Hero ---------- */
+.hero .wrap {
+  display: grid; gap: var(--s7);
+  padding-block: var(--s7) var(--s8);
+}
+.hero-copy { display: grid; gap: var(--s6); align-content: end; min-width: 0; }
+.hero-lead { font-size: 1.1875rem; max-width: 34ch; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s5) var(--s6); }
+.status { display: flex; align-items: center; gap: var(--s3); font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
+.status[data-open="true"] .dot { background: var(--accent); }
+.hero-media { min-width: 0; margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.hero-media figcaption { margin-top: var(--s3); font-size: 14px; color: var(--muted); }
+@media (min-width: 900px) {
+  .hero .wrap { grid-template-columns: 7fr 5fr; gap: var(--s8); padding-block: var(--s9) var(--s9); align-items: end; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 { animation: rise 1.1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-media .ph { animation: settle 1.6s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { transform: translateY(18px); } to { transform: none; } }
+  @keyframes settle { from { transform: scale(1.03); } to { transform: none; } }
+}
+
+/* ---------- Bölüm temeli ---------- */
+.section .wrap { padding-block: var(--s9); }
+@media (min-width: 900px) { .section .wrap { padding-block: var(--s10); } }
+.rule { border-top: 1px solid var(--line); }
+
+/* ---------- Tanıtım ---------- */
+.about .wrap { display: grid; gap: var(--s7); }
+.about-text {
+  font-family: var(--font-display); font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+  line-height: 1.35; max-width: 32ch; margin: 0;
+}
+.about-text footer { margin-top: var(--s5); font: 400 14px/1.5 var(--font-body); color: var(--muted); }
+.facts { margin: 0; display: grid; border-top: 1px solid var(--line); }
+.facts div { display: grid; gap: var(--s1); padding-block: var(--s5); border-bottom: 1px solid var(--line); }
+.facts dt { font-size: 14px; color: var(--muted); }
+.facts dd { margin: 0; font-size: 17px; }
+@media (min-width: 900px) {
+  .about .wrap { grid-template-columns: 4fr 8fr; gap: var(--s8); }
+  .about-body { display: grid; grid-template-columns: 1fr; gap: var(--s8); }
+  .facts div { grid-template-columns: 10rem 1fr; gap: var(--s5); }
+}
+
+/* ---------- Koleksiyon ---------- */
+.coll-head { display: grid; gap: var(--s4); margin-bottom: var(--s7); }
+.coll-head p { color: var(--muted); max-width: 46ch; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6) var(--s4); }
+.grid .g-main { grid-column: 1 / -1; }
+.grid .g-b h3, .grid .g-c h3 { font-size: 1.375rem; }
+.grid figure { margin: 0; display: grid; gap: var(--s4); min-width: 0; }
+.grid figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s4); }
+.grid figcaption p { font-size: 14px; color: var(--muted); }
+.coll-foot { margin-top: var(--s7); display: flex; flex-wrap: wrap; gap: var(--s4); align-items: baseline; justify-content: space-between; }
+.coll-foot p { color: var(--muted); }
+@media (min-width: 700px) {
+  .coll-head { grid-template-columns: 1fr 1fr; align-items: end; }
+  .grid { grid-template-columns: 7fr 5fr; grid-template-rows: auto auto; }
+  .grid .g-main { grid-row: 1 / span 2; grid-column: auto; }
+  .grid .g-b h3, .grid .g-c h3 { font-size: 1.75rem; }
+  .grid .g-b .ph { aspect-ratio: 4 / 3; }
+  .grid .g-c .ph { aspect-ratio: 4 / 3; }
+}
+
+/* ---------- Yorumlar ---------- */
+.reviews { background: var(--surface); }
+.reviews .wrap { display: grid; gap: var(--s8); }
+.score { display: grid; gap: var(--s3); align-content: start; }
+.score-num {
+  font-family: var(--font-display); font-size: clamp(6rem, 16vw, 11rem);
+  line-height: 0.85; font-variation-settings: "opsz" 96; font-variant-numeric: lining-nums;
+}
+.stars { display: flex; gap: var(--s1); color: var(--accent); }
+.stars svg { width: 20px; height: 20px; }
+.score p { color: var(--muted); }
+.quotes { display: grid; gap: var(--s7); margin: 0; padding: 0; list-style: none; }
+.quotes li { border-top: 1px solid var(--line); padding-top: var(--s5); }
+.quotes blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.5rem, 2.8vw, 2.25rem); line-height: 1.3; }
+.quotes cite { display: block; margin-top: var(--s4); font: normal 14px/1.5 var(--font-body); color: var(--muted); }
+@media (min-width: 900px) { .reviews .wrap { grid-template-columns: 4fr 8fr; } }
+
+/* ---------- Ziyaret ---------- */
+.visit-head { margin-bottom: var(--s8); max-width: 20ch; }
+.visit-grid { display: grid; gap: var(--s8); }
+.plate {
+  display: grid; gap: var(--s4); align-content: start;
+  border: 1px solid var(--ink); padding: var(--s6) var(--s5) var(--s5);
+}
+.plate-label { font-size: 14px; color: var(--muted); }
+.plate-num { font-family: var(--font-display); font-size: clamp(7rem, 18vw, 10rem); line-height: 0.8; font-variation-settings: "opsz" 96; }
+.plate address { font-style: normal; border-top: 1px solid var(--line); padding-top: var(--s4); }
+.block h3 { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--muted); margin-bottom: var(--s4); letter-spacing: 0; }
+.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours th, .hours td { text-align: left; padding: var(--s3) 0; border-bottom: 1px solid var(--line); font-weight: 400; }
+.hours td { text-align: right; }
+.hours tr[aria-current="date"] th, .hours tr[aria-current="date"] td { font-weight: 600; color: var(--accent); }
+.hours tr[aria-current="date"] th::after { content: " · bugün"; font-weight: 400; }
+.contact { display: grid; gap: var(--s6); align-content: start; }
+.contact dl { margin: 0; display: grid; gap: var(--s5); }
+.contact dt { font-size: 14px; color: var(--muted); }
+.contact dd { margin: var(--s1) 0 0; font-size: 19px; font-variant-numeric: tabular-nums; }
+.contact dd .tel { text-decoration: none; }
+.contact dd .tel:hover { text-decoration: underline; text-underline-offset: 4px; }
+.contact dd small { display: block; font-size: 15px; color: var(--muted); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: var(--s4) var(--s6); align-items: center; }
+@media (min-width: 700px) { .visit-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .visit-grid { grid-template-columns: 4fr 4fr 4fr; gap: var(--s7); } }
+
+/* ---------- Alt bilgi ---------- */
+.foot { border-top: 1px solid var(--line); }
+.foot .wrap { display: grid; gap: var(--s5); padding-block: var(--s7); font-size: 15px; color: var(--muted); }
+.foot .brand { color: var(--ink); }
+.foot a { text-underline-offset: 4px; }
+@media (min-width: 900px) { .foot .wrap { grid-template-columns: auto 1fr auto; align-items: baseline; gap: var(--s7); } }
+
+/* ---------- Mobil aksiyon çubuğu ---------- */
+.dock {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 25;
+  display: grid; grid-template-columns: 1fr 1.4fr 1fr;
+  background: var(--bg); border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px);
+}
+.dock a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: 60px; text-decoration: none; font-size: 13px; font-weight: 500;
+}
+.dock a + a { border-left: 1px solid var(--line); }
+.dock a.primary { background: var(--accent); color: var(--on-accent); border-left: 0; }
+.dock svg { width: 20px; height: 20px; }
+body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 900px) { .dock { display: none; } body { padding-bottom: 0; } }
+
+.icon { fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+<div lang="tr">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Ayfa Moda</a>
+    <nav class="nav" aria-label="Ana menü">
+      <a href="#magaza">Mağaza</a>
+      <a href="#koleksiyon">Koleksiyon</a>
+      <a href="#yorumlar">Yorumlar</a>
+      <a href="#ziyaret">Ziyaret</a>
+    </nav>
+    <a class="top-call" href="tel:+905050767076">0505 076 70 76</a>
+  </div>
+</header>
+
+<main id="icerik">
+
+  <section class="hero" aria-labelledby="hero-baslik">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 id="hero-baslik">Isparta’da kadın ve tesettür giyim</h1>
+        <p class="hero-lead">Modern, zarif ve rahat parçalar. Günlük kombinlerden özel davetlere, Fatih Çarşısı’ndaki mağazamızda.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"/></svg>
+            WhatsApp’tan yazın
+          </a>
+          <a class="link" href="#ziyaret">Adres ve saatler</a>
+        </div>
+        <p class="status" id="durum" data-open="unknown">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="durum-metin">Pzt–Cmt 09:00–20:00 · Paz 12:00–20:00</span>
+        </p>
+      </div>
+      <figure class="hero-media">
+        <div class="ph r-3-4"><span>[Mağaza Görseli — 1200×1600]</span></div>
+        <figcaption>Fatih Çarşısı, İç Kapı No: 35</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section about rule" id="magaza" aria-labelledby="magaza-baslik">
+    <div class="wrap">
+      <h2 id="magaza-baslik">Mağaza</h2>
+      <div class="about-body">
+        <blockquote class="about-text">
+          <p>Ayfa Moda, Isparta’da kadın giyim alanında şıklığı ve kaliteyi bir araya getiren özel bir butiktir. Her yaşa ve tarza hitap eden modern, zarif ve rahat parçalarıyla kadınların gardıroplarına değer katmayı hedefler. Günlük kombinlerden özel davetlere kadar geniş ürün yelpazesi sunan Ayfa Moda, müşteri memnuniyetini ön planda tutarak en trend seçenekleri uygun fiyatlarla buluşturur.</p>
+        </blockquote>
+        <dl class="facts">
+          <div><dt>Ürünler</dt><dd>Kadın giyim ve tesettür giyim</dd></div>
+          <div><dt>Kullanım</dt><dd>Günlük kombinler ve özel davetler</dd></div>
+          <div><dt>Ödeme</dt><dd>Kredi kartı, banka kartı ve NFC ile mobil ödeme</dd></div>
+          <div><dt>Açık günler</dt><dd>Haftanın 7 günü</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rule" id="koleksiyon" aria-labelledby="koleksiyon-baslik">
+    <div class="wrap">
+      <div class="coll-head">
+        <h2 id="koleksiyon-baslik">Koleksiyon</h2>
+        <p>Güncel parçaları Instagram hesabımızda paylaşıyoruz. Beğendiğiniz bir ürünü sormak için WhatsApp’tan yazabilirsiniz.</p>
+      </div>
+      <div class="grid">
+        <figure class="g-main">
+          <div class="ph r-4-5"><span>[Instagram Gönderisi — 1080×1350]</span></div>
+          <figcaption><h3>Tesettür Giyim</h3></figcaption>
+        </figure>
+        <figure class="g-b">
+          <div class="ph r-4-5"><span>[Instagram Gönderisi — 1080×1350]</span></div>
+          <figcaption><h3>Günlük Kombinler</h3></figcaption>
+        </figure>
+        <figure class="g-c">
+          <div class="ph r-4-5"><span>[Instagram Gönderisi — 1080×1350]</span></div>
+          <figcaption><h3>Özel Davet</h3></figcaption>
+        </figure>
+      </div>
+      <div class="coll-foot">
+        <p>Yeni gelen parçalar için</p>
+        <a class="link" href="https://www.instagram.com/ayfa_moda_/" target="_blank" rel="noopener">Instagram’da @ayfa_moda_</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews" id="yorumlar" aria-labelledby="yorumlar-baslik">
+    <div class="wrap">
+      <div class="score">
+        <h2 id="yorumlar-baslik" class="sr-only">Müşteri yorumları</h2>
+        <p class="score-num">5,0</p>
+        <div class="stars" role="img" aria-label="5 üzerinden 5 yıldız">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>
+        </div>
+        <p>Google Haritalar’da 12 yorumun ortalaması</p>
+        <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Ayfa%20Moda%20Isparta&amp;query_place_id=ChIJ0d72uVm1xRQRh6SxBXb6L2Y" target="_blank" rel="noopener">Yorumları Google’da okuyun</a>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote><p>yeni acilmis bir butik urunler cok guzel fiyatlar da uygun satici gayet ilgili ve kibar herkese tavsiye ederim</p></blockquote>
+          <cite>Google yorumu, 29 Ağustos 2025</cite>
+        </li>
+        <li>
+          <blockquote><p>İsparta'da tesettür giyimde yeni durağımız oldu.</p></blockquote>
+          <cite>Google yorumu, 29 Ağustos 2025</cite>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="ziyaret" aria-labelledby="ziyaret-baslik">
+    <div class="wrap">
+      <h2 class="visit-head" id="ziyaret-baslik">Fatih Çarşısı’nda, iç kapı 35</h2>
+      <div class="visit-grid">
+        <div class="plate">
+          <span class="plate-label">İç Kapı No</span>
+          <span class="plate-num" aria-hidden="true">35</span>
+          <address>
+            Yayla Mahallesi, 1612. Sokak<br>
+            Fatih Çarşısı No: 5, İç Kapı No: 35<br>
+            32000 Merkez / Isparta
+          </address>
+          <a class="link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ayfa%20Moda%20Isparta&amp;destination_place_id=ChIJ0d72uVm1xRQRh6SxBXb6L2Y" target="_blank" rel="noopener">Yol tarifi alın</a>
+        </div>
+
+        <div class="block">
+          <h3>Çalışma saatleri</h3>
+          <table class="hours" id="saatler">
+            <tbody>
+              <tr data-day="1"><th scope="row">Pazartesi</th><td>09:00–20:00</td></tr>
+              <tr data-day="2"><th scope="row">Salı</th><td>09:00–20:00</td></tr>
+              <tr data-day="3"><th scope="row">Çarşamba</th><td>09:00–20:00</td></tr>
+              <tr data-day="4"><th scope="row">Perşembe</th><td>09:00–20:00</td></tr>
+              <tr data-day="5"><th scope="row">Cuma</th><td>09:00–20:00</td></tr>
+              <tr data-day="6"><th scope="row">Cumartesi</th><td>09:00–20:00</td></tr>
+              <tr data-day="0"><th scope="row">Pazar</th><td>12:00–20:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="block contact">
+          <h3>İletişim</h3>
+          <dl>
+            <div>
+              <dt>Telefon ve WhatsApp</dt>
+              <dd><a class="tel" href="tel:+905050767076">+90 505 076 70 76</a></dd>
+            </div>
+            <div>
+              <dt>Instagram</dt>
+              <dd><a class="link" href="https://www.instagram.com/ayfa_moda_/" target="_blank" rel="noopener">@ayfa_moda_</a></dd>
+            </div>
+            <div>
+              <dt>Ödeme</dt>
+              <dd>Kredi kartı, banka kartı, NFC</dd>
+            </div>
+          </dl>
+          <div class="contact-actions">
+            <a class="btn" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener">WhatsApp’tan yazın</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="brand">Ayfa Moda</span>
+    <span>Fatih Çarşısı No: 5, İç Kapı No: 35 · Yayla Mah. · Merkez / Isparta</span>
+    <span><a href="https://www.instagram.com/ayfa_moda_/" target="_blank" rel="noopener">@ayfa_moda_</a> · © <span id="yil">2026</span></span>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Hızlı iletişim">
+  <a href="tel:+905050767076">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.5 4-2 1.5a10 10 0 0 0 6.5 6.5L16 14l4 1.5V19a1 1 0 0 1-1 1A15 15 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
+    Ara
+  </a>
+  <a class="primary" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>
+    WhatsApp
+  </a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ayfa%20Moda%20Isparta&amp;destination_place_id=ChIJ0d72uVm1xRQRh6SxBXb6L2Y" target="_blank" rel="noopener">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>
+    Yol tarifi
+  </a>
+</nav>
+</div>
+
+<script>
+(function () {
+  // Kaynak dosyadaki saatler: Pzt–Cmt 09:00–20:00, Paz 12:00–20:00 (Europe/Istanbul)
+  var HOURS = { 0: [12, 20], 1: [9, 20], 2: [9, 20], 3: [9, 20], 4: [9, 20], 5: [9, 20], 6: [9, 20] };
+  var OPEN_SUFFIX = { 9: "09:00’da", 12: "12:00’de" };
+  try {
+    var parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Istanbul", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+    }).formatToParts(new Date());
+    var get = function (t) { for (var i = 0; i < parts.length; i++) if (parts[i].type === t) return parts[i].value; };
+    var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
+    var mins = parseInt(get("hour"), 10) * 60 + parseInt(get("minute"), 10);
+    if (day < 0 || isNaN(mins)) return;
+
+    var row = document.querySelector('#saatler tr[data-day="' + day + '"]');
+    if (row) row.setAttribute("aria-current", "date");
+
+    var h = HOURS[day], text, open = false;
+    if (mins >= h[0] * 60 && mins < h[1] * 60) {
+      open = true; text = "Şu an açık · bugün 20:00’ye kadar";
+    } else if (mins < h[0] * 60) {
+      text = "Şu an kapalı · bugün " + OPEN_SUFFIX[h[0]] + " açılıyor";
+    } else {
+      var next = HOURS[(day + 1) % 7][0];
+      text = "Şu an kapalı · yarın " + OPEN_SUFFIX[next] + " açılıyor";
+    }
+    var el = document.getElementById("durum");
+    el.setAttribute("data-open", String(open));
+    document.getElementById("durum-metin").textContent = text;
+    document.getElementById("yil").textContent = new Date().getFullYear();
+  } catch (e) { /* statik saat metni kalır */ }
+})();
+</script>
+</body>
+</html>
