@@ -47,14 +47,16 @@
 /* Yerleşim: asimetrik 7/5 hero → iki sütunlu tanıtım → dergi ızgarası koleksiyon →
    ton farklı yorum şeridi → "İç Kapı 35" kapı levhalı ziyaret bloğu. Kart yok, ince çizgi + boşluk. */
 :root {
-  --bg: #F3F1F0;        /* taş beyazı, hafif mürdüm eğilimli */
-  --surface: #E7E2E2;   /* ikincil yüzey */
-  --ink: #1D1719;       /* ana metin */
-  --muted: #5C5255;     /* ikincil metin */
-  --accent: #6B2337;    /* mürdüm */
+  /* Tek, sıcak açık tema: logo ve stüdyo fotoğraflarının fildişi zemini */
+  --bg: #FAF8F5;        /* ana zemin, fildişi */
+  --surface: #F2EDE6;   /* ikincil yüzey, krem */
+  --ink: #1C1917;       /* ana metin ve CTA zemini, antrasit */
+  --muted: #57534E;     /* ikincil metin */
+  --accent: #1C1917;    /* ana CTA: antrasit üzerine beyaz */
   --on-accent: #FFFFFF;
-  --line: #CEC6C7;
-  --gold: #8A6A2E;      /* logodaki altın, metin için koyulaştırılmış */
+  --line: #E2DBD1;
+  --gold: #B08D57;      /* logodaki altın: süs, çizgi, yıldız */
+  color-scheme: light;
 
   --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --font-body: "Work Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -64,16 +66,6 @@
   --max: 1280px;
   --gutter: max(16px, env(safe-area-inset-left, 0px));
   --gutter-r: max(16px, env(safe-area-inset-right, 0px));
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #161213; --surface: #221B1D; --ink: #EFE9EA; --muted: #B4A9AC;
-    --accent: #E09AAE; --on-accent: #1D1719; --line: #3B3235; --gold: #CDAE72; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #161213; --surface: #221B1D; --ink: #EFE9EA; --muted: #B4A9AC;
-  --accent: #E09AAE; --on-accent: #1D1719; --line: #3B3235; --gold: #CDAE72; color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -121,9 +113,10 @@ p { margin: 0; }
   background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: 64px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); min-height: 72px; }
 .brand { display: inline-flex; align-items: center; gap: var(--s3); font-family: var(--font-display); font-size: 1.625rem; text-decoration: none; letter-spacing: 0.01em; line-height: 1; }
-.brand img { width: 40px; height: 40px; }
+.brand img { width: 52px; height: 52px; }
+.foot .brand img { width: 44px; height: 44px; }
 .nav { display: none; gap: var(--s6); }
 .nav a { text-decoration: none; font-size: 15px; color: var(--muted); padding-block: var(--s2); border-bottom: 1px solid transparent; }
 .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
@@ -159,7 +152,7 @@ p { margin: 0; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s5) var(--s6); }
 .status { display: flex; align-items: center; gap: var(--s3); font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
-.status[data-open="true"] .dot { background: var(--accent); }
+.status[data-open="true"] .dot { background: var(--gold); }
 .hero-media { min-width: 0; margin: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .photo { width: 100%; height: auto; object-fit: cover; background: var(--surface); }
@@ -202,7 +195,10 @@ p { margin: 0; }
 /* Mobil: 2 sütun, yatay görseller tam genişlik. Masaüstü: oranlarına göre eşit yükseklikte satırlar. */
 .gallery { display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: dense; gap: var(--s3); }
 .gallery .row { display: contents; }
-.gallery figure { margin: 0; min-width: 0; }
+.gallery figure { margin: 0; min-width: 0; display: grid; gap: var(--s2); align-content: start; }
+.ask { display: inline-flex; align-items: center; gap: var(--s2); justify-self: start; min-height: 32px; font-size: 14px; color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+.ask:hover { color: var(--ink); border-bottom-color: var(--gold); }
+.ask svg { width: 16px; height: 16px; color: var(--gold); }
 .gallery .photo { aspect-ratio: 4 / 5; }
 .gallery .wide { grid-column: 1 / -1; }
 .gallery .wide .photo { aspect-ratio: 5 / 4; }
@@ -251,7 +247,8 @@ p { margin: 0; }
 .hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .hours th, .hours td { text-align: left; padding: var(--s3) 0; border-bottom: 1px solid var(--line); font-weight: 400; }
 .hours td { text-align: right; }
-.hours tr[aria-current="date"] th, .hours tr[aria-current="date"] td { font-weight: 600; color: var(--accent); }
+.hours tr[aria-current="date"] th, .hours tr[aria-current="date"] td { font-weight: 600; color: var(--ink); }
+.hours tr[aria-current="date"] th::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-right: var(--s2); vertical-align: middle; }
 .hours tr[aria-current="date"] th::after { content: " · bugün"; font-weight: 400; }
 .contact { display: grid; gap: var(--s6); align-content: start; }
 .contact dl { margin: 0; display: grid; gap: var(--s5); }
@@ -298,7 +295,7 @@ body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><img src="assets/img/logo.png" alt="" width="40" height="40">Ayfa Moda</a>
+    <a class="brand" href="#"><img src="assets/img/logo.png" alt="" width="52" height="52">Ayfa Moda</a>
     <nav class="nav" aria-label="Ana menü">
       <a href="#magaza">Mağaza</a>
       <a href="#koleksiyon">Koleksiyon</a>
@@ -359,20 +356,50 @@ body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
       </div>
       <div class="gallery">
         <div class="row">
-          <figure style="--ar:0.81"><img class="photo" src="assets/img/cicekli-elbise-1200.jpg" srcset="assets/img/cicekli-elbise-600.jpg 600w, assets/img/cicekli-elbise-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1481" loading="lazy" decoding="async" alt="Çiçek desenli, kuşaklı uzun elbise"></figure>
-          <figure class="wide" style="--ar:1.25"><img class="photo" src="assets/img/takimlar-askida-1200.jpg" srcset="assets/img/takimlar-askida-600.jpg 600w, assets/img/takimlar-askida-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="960" loading="lazy" decoding="async" alt="Askıda açık mavi ve kahverengi tunik ve pantolon takımlar"></figure>
-          <figure style="--ar:0.75"><img class="photo" src="assets/img/siyah-takim-1200.jpg" srcset="assets/img/siyah-takim-600.jpg 600w, assets/img/siyah-takim-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Siyah, kuşaklı gömlek ve pantolon takım"></figure>
+          <figure style="--ar:0.75">
+            <img class="photo" src="assets/img/bordo-pliseli-takim-1200.jpg" srcset="assets/img/bordo-pliseli-takim-600.jpg 600w, assets/img/bordo-pliseli-takim-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Bordo gömlek ve pliseli etek takım">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Bordo gömlek ve pliseli etek takım"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
+          <figure class="wide" style="--ar:1.25">
+            <img class="photo" src="assets/img/takimlar-askida-1200.jpg" srcset="assets/img/takimlar-askida-600.jpg 600w, assets/img/takimlar-askida-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="960" loading="lazy" decoding="async" alt="Askıda açık mavi ve kahverengi tunik ve pantolon takımlar">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Askıda açık mavi ve kahverengi tunik ve pantolon takımlar"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
+          <figure style="--ar:0.75">
+            <img class="photo" src="assets/img/siyah-takim-1200.jpg" srcset="assets/img/siyah-takim-600.jpg 600w, assets/img/siyah-takim-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Siyah, kuşaklı gömlek ve pantolon takım">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Siyah, kuşaklı gömlek ve pantolon takım"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
         </div>
         <div class="row">
-          <figure class="wide" style="--ar:1.124"><img class="photo" src="assets/img/pembe-gomlek-detay-1200.jpg" srcset="assets/img/pembe-gomlek-detay-600.jpg 600w, assets/img/pembe-gomlek-detay-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1068" loading="lazy" decoding="async" alt="Pembe fırfırlı gömleğin yakın plan detayları"></figure>
-          <figure style="--ar:0.75"><img class="photo" src="assets/img/bordo-pliseli-takim-1200.jpg" srcset="assets/img/bordo-pliseli-takim-600.jpg 600w, assets/img/bordo-pliseli-takim-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Bordo gömlek ve pliseli etek takım"></figure>
-          <figure style="--ar:0.81"><img class="photo" src="assets/img/pliseli-etekler-1200.jpg" srcset="assets/img/pliseli-etekler-600.jpg 600w, assets/img/pliseli-etekler-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1481" loading="lazy" decoding="async" alt="Farklı renklerde pliseli uzun etekler"></figure>
+          <figure style="--ar:0.81">
+            <img class="photo" src="assets/img/cicekli-elbise-1200.jpg" srcset="assets/img/cicekli-elbise-600.jpg 600w, assets/img/cicekli-elbise-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1481" loading="lazy" decoding="async" alt="Çiçek desenli, kuşaklı uzun elbise">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Çiçek desenli, kuşaklı uzun elbise"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
+          <figure style="--ar:0.805">
+            <img class="photo" src="assets/img/cicekli-elbiseler-askida-1200.jpg" srcset="assets/img/cicekli-elbiseler-askida-600.jpg 600w, assets/img/cicekli-elbiseler-askida-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1491" loading="lazy" decoding="async" alt="Askıda farklı renklerde çiçek desenli elbiseler">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Askıda farklı renklerde çiçek desenli elbiseler"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
+          <figure style="--ar:0.804">
+            <img class="photo" src="assets/img/yesil-cicekli-elbise-1200.jpg" srcset="assets/img/yesil-cicekli-elbise-600.jpg 600w, assets/img/yesil-cicekli-elbise-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1493" loading="lazy" decoding="async" alt="Yeşil çiçek desenli, kuşaklı uzun elbise">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Yeşil çiçek desenli, kuşaklı uzun elbise"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
+          <figure style="--ar:0.754">
+            <img class="photo" src="assets/img/cizgili-elbise-1200.jpg" srcset="assets/img/cizgili-elbise-600.jpg 600w, assets/img/cizgili-elbise-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1592" loading="lazy" decoding="async" alt="Çizgili, kuşaklı uzun elbise">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Çizgili, kuşaklı uzun elbise"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
         </div>
         <div class="row">
-          <figure style="--ar:0.804"><img class="photo" src="assets/img/yesil-cicekli-elbise-1200.jpg" srcset="assets/img/yesil-cicekli-elbise-600.jpg 600w, assets/img/yesil-cicekli-elbise-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1493" loading="lazy" decoding="async" alt="Yeşil çiçek desenli, kuşaklı uzun elbise"></figure>
-          <figure style="--ar:0.805"><img class="photo" src="assets/img/cicekli-elbiseler-askida-1200.jpg" srcset="assets/img/cicekli-elbiseler-askida-600.jpg 600w, assets/img/cicekli-elbiseler-askida-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1491" loading="lazy" decoding="async" alt="Askıda farklı renklerde çiçek desenli elbiseler"></figure>
-          <figure style="--ar:0.75"><img class="photo" src="assets/img/mavi-takim-1200.jpg" srcset="assets/img/mavi-takim-600.jpg 600w, assets/img/mavi-takim-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Açık mavi katlı tunik ve geniş paça pantolon takım"></figure>
-          <figure style="--ar:0.754"><img class="photo" src="assets/img/cizgili-elbise-1200.jpg" srcset="assets/img/cizgili-elbise-600.jpg 600w, assets/img/cizgili-elbise-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1592" loading="lazy" decoding="async" alt="Çizgili, kuşaklı uzun elbise"></figure>
+          <figure style="--ar:0.75">
+            <img class="photo" src="assets/img/mavi-takim-1200.jpg" srcset="assets/img/mavi-takim-600.jpg 600w, assets/img/mavi-takim-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Açık mavi katlı tunik ve geniş paça pantolon takım">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Açık mavi katlı tunik ve geniş paça pantolon takım"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
+          <figure style="--ar:0.81">
+            <img class="photo" src="assets/img/pliseli-etekler-1200.jpg" srcset="assets/img/pliseli-etekler-600.jpg 600w, assets/img/pliseli-etekler-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1481" loading="lazy" decoding="async" alt="Farklı renklerde pliseli uzun etekler">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Farklı renklerde pliseli uzun etekler"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
+          <figure class="wide" style="--ar:1.124">
+            <img class="photo" src="assets/img/pembe-gomlek-detay-1200.jpg" srcset="assets/img/pembe-gomlek-detay-600.jpg 600w, assets/img/pembe-gomlek-detay-1200.jpg 1200w" sizes="(min-width: 900px) 33vw, 50vw" width="1200" height="1068" loading="lazy" decoding="async" alt="Pembe fırfırlı gömleğin yakın plan detayları">
+            <figcaption><a class="ask" href="https://wa.me/905050767076?text=Merhaba%2C%20web%20sitenizde%20g%C3%B6rd%C3%BC%C4%9F%C3%BCm%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Bu ürünü WhatsApp’tan sorun: Pembe fırfırlı gömleğin yakın plan detayları"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>WhatsApp’tan sor</a></figcaption>
+          </figure>
         </div>
       </div>
       <div class="coll-foot">
@@ -477,7 +504,7 @@ body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
 
 <footer class="foot">
   <div class="wrap">
-    <span class="brand"><img src="assets/img/logo.png" alt="" width="40" height="40">Ayfa Moda</span>
+    <span class="brand"><img src="assets/img/logo.png" alt="" width="52" height="52">Ayfa Moda</span>
     <span>Fatih Çarşısı No: 5, İç Kapı No: 35 · Yayla Mah. · Merkez / Isparta</span>
     <span><a href="https://www.instagram.com/ayfa_moda_/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/share/1b5wi8FSQ7/" target="_blank" rel="noopener">Facebook</a> · <a href="mailto:moda.ayfa@gmail.com">moda.ayfa@gmail.com</a> · © <span id="yil">2026</span></span>
   </div>
